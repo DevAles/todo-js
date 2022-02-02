@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div></div>
+        <h1>To-Do List</h1>
+        <input id='taskName' type="text">
+        <button id='addTask' type="button">Add Task</button>
+        <table id="tasks"></table>
+        <script>
+            const addTask = document.getElementById('addTask')
+
+            addTask.addEventListener('click', function(){
+                const taskName = document.getElementById('taskName').value
+                
+                if(taskName){
+                    createTask(taskName)
+                } else{
+                    alert('Empty Task Name')
+                }
+            })
+            
+            function createTask(taskName){
+                const taskId = Math.floor(Math.random()* 1000000)
+
+                const taskIncompleted = `
+                <td id='${taskId}' class='taskIncompleted' onclick="taskStatus(${taskId})">
+                    ${taskName}
+                </td>
+                `
+                document.getElementById('tasks').innerHTML += taskIncompleted
+            }
+
+            function taskStatus(taskId, taskName){
+                const taskElement = document.getElementById(taskId)
+                const className = taskElement.className
+
+                if (className == 'taskCompleted'){
+                    taskElement.className = 'taskIncompleted'
+                } else{
+                    taskElement.className = 'taskCompleted'
+                }
+            }
+        </script>
+    </body>
+</html>

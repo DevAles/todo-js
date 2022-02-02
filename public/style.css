@@ -1,0 +1,15 @@
+.taskIncompleted{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 35cm;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+.taskCompleted{
+    font-style: italic;
+    text-decoration: line-through;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 35cm;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: green;
+}
